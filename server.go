@@ -286,7 +286,6 @@ func main() {
 	// Define route for requests
 	router.HandleFunc("/api/ocular", GetUserData).Methods("GET")
 	router.HandleFunc("/api/ocular", PostUserData).Methods("POST")
-	router.HandleFunc("/api/customInfo", PostCustomInfo).Methods("POST")
 
 	// CORS middleware
 	corsHandler := cors.Default().Handler(router)
