@@ -1,8 +1,11 @@
-FROM golang:1.21.4-alpine
+FROM golang:1.17.2-alpine
 
-RUN mkdir /app
-ADD . /app
 WORKDIR /app
-RUN go build -o main .
-CMD ["/app/main"]
 
+COPY . .
+
+RUN CGO_ENABLED=0 go build -o server
+
+EXPOSE 8080
+
+CMD ["./server"]
